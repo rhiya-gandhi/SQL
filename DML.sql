@@ -1,0 +1,17 @@
+create database college;
+show databases;
+use college;
+create table employee (emp_id int, firstname varchar(40),lastname varchar(40),age int, empzone varchar(40));
+desc employee;
+insert into employee values(01,"parnika","bhagwat",21,"east");
+insert into employee values(02,"yash","Deokate",21,"west");
+insert into employee values(03,"nikhil","deo",21,"north");
+select * from employee;
+insert into employee(emp_id,firstname,lastname,age,empzone) values (04,"rhiya","gandhi",21,"south");
+update employee set age = 20 where emp_id = 01;
+update employee set empzone = "east" where emp_id = 03;
+delete from employee where firstname = "rhiya";
+update employee set firstname = "Rhiya", lastname = "Gandhi" where emp_id= 04;
+delete from employee where emp_id = 02;
+truncate table employee;
+select emp_id, firstname from employee;
