@@ -59,3 +59,12 @@ insert into customer values (04,"anamika","karad","soap",200,"singh"); -- multip
 select substr(custname,1,3) as substring, instr(custname,"a") as instring  from customer;
 
 select substr(custname,1,3) as substring, instr(custname,"a") as instring  from customer where custid = 01;
+
+-- date and time function
+select now();
+select now() as current_datetime;
+alter table customer add column datetime date;
+update customer set datetime = '2024-02-20' where custid = 01;
+update customer set datetime = '2024-02-10' where custid = 02;
+update customer set datetime = '2024-02-25' where custid = 03;
+select * from customer;
