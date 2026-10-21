@@ -66,4 +66,38 @@ insert into employee values (6,"",'mehta','F','president','hr','M6',10);
 insert into employee values (7,"jiya",null,'F','president','hr','M7',15);
 select * from employee where Last_name is null; -- it will show which has null value 
 
+-- filtering data from table
+
+select*from employee;
+select count(empid) from employee where dept="hr";
+select min(experience) from employee;
+select max(experience) from employee;
+select sum(experience) from employee;
+select avg(experience)as emp_exp from employee;
+
+-- group by clause- divides a set of rows into subgroups 
+
+-- find the dept wise employee count
+
+select dept ,count(*) as employee_count from employee group by dept;
+select role ,count(*) as employee_count from employee group by role;
+select gender ,count(*) as employee_count from employee group by gender;
+
+-- having clause - each group produced by group clause is evaluated by having clause 
+-- and if the result is true the row  
+
+select dept, sum(experience) as total_exp from employee group by dept
+having total_exp>=10 and total_exp<=20;
+
+select role,sum(experience) as total_exp from employee group by role
+having total_exp >=1 and total_exp<=10;
+
+-- fetch dept wise employee count using  having clause and sort the data
+
+select dept,count(empid) from employee group by dept
+having count(empid) >= 2
+order by count(empid)desc;
+
+select dept,sum(experience) as total_exp from employee group by dept
+having total_exp >=1 or total_exp <=20;
 
